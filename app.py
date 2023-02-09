@@ -1,4 +1,3 @@
-"""Import to create Flask UI"""
 from flask import Flask, render_template
 
 app = Flask(__name__)

@@ -18,8 +18,8 @@
     <div class="container">
         <h1>Holy Chef!</h1>
         <div class="row">
-            <form action="/generate_recipes" method="POST">
-                <div class="col-md-6">
+            <div class="col-md-6">
+                <form action="/generate_recipes" method="POST">
                     <label class="form-label">What ingredients do you have?</label>
                     <div class="w-100 mb-3 input-group">
                         <textarea class="w-100 form-control" name="ingredients"></textarea>
@@ -38,8 +38,8 @@
                         <span class="input-group-text">minutes</span>
                     </div>
                     <button type="submit" class="btn btn-primary"> Generate Recipes</button>
-                </div>
-            </form>
+                </form>
+            </div>
 
             <div class="col-md-6 d-none" id="rightcontainer">
                 <!-- Recipe display -->

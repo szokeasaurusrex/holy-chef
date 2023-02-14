@@ -1,13 +1,15 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
+def home():
+    """Home page"""
     return render_template('index.html', results = [])
 
 @app.route('/generate_recipes', methods=['POST'])
 def generate_recipies():
+    """Handles submission of the "Generate Recipes" button."""
     return render_template('index.html', results=[
         {
             'title': 'Basic Omelette',

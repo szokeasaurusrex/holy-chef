@@ -6,7 +6,7 @@ class Elastic_Manager:
     def __init__(self, port):
         self.es_client = Elasticsearch("http://localhost:9200")
     
-    def retrieveRecipe(self, ):
+    def retrieveRecipe(self, recipeInfo):
         
     
         

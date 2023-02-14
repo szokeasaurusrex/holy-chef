@@ -5,5 +5,6 @@ class Recipe:
         self.ingridients = ingredients
         self.ingridients = likedFoods
         self.ingridients = timeToCook
+        
           
      

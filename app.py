@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -6,3 +6,7 @@ app = Flask(__name__)
 def hello_world():
     """Hello word"""
     return render_template('index.html')
+
+@app.route('/generate_recipes', methods=['POST'])
+def generate_recipies():
+    return request.form

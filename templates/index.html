@@ -40,15 +40,12 @@
                 </form>
             </div>
 
-            <div class="col-md-6 d-none" id="rightcontainer">
-                <!-- Recipe display -->
+            <div class="col-md-6" id="rightcontainer">
+                <h3>Results</h3>
 
-                {{ recipe_card( recipe={
-                    'title': 'Basic Omelette',
-                    'ingredients': ['Eggs', 'Cheese', 'Butter', 'Bacon Bits'],
-                    'url': 'https://natashaskitchen.com/perfect-omelette-recipe/',
-                    'minutes': 5
-                }) }}
+                {% for recipe in results %}
+                    {{ recipe_card(recipe) }}
+                {% endfor %}
             </div>
         </div>
     </div>

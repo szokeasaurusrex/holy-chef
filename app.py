@@ -19,7 +19,8 @@ def generate_recipies():
         },
         {
             'title': 'Vegetable Stuffed Omelette',
-            'ingredients': ['Eggs', 'Cheese', 'Butter', 'Mushrooms', 'Onion', 'Red pepper', 'Spinach'],
+            'ingredients': ['Eggs', 'Cheese', 'Butter', 'Mushrooms', 'Onion', 'Red pepper',
+                            'Spinach'],
             'url': 'https://natashaskitchen.com/perfect-omelette-recipe/',
             'minutes': 15,
         },

@@ -30,4 +30,3 @@ configurations = {
 }
 
 es_index_client.create(index="recipes", body=configurations)
-

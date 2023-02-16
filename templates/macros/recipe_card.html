@@ -5,9 +5,9 @@
             <p class="card-text">
                 Key Ingredients: {{ ', '.join(recipe['ingredients']) }}
                 <br>
-                Total Time: {{ recipe['minutes'] }} Minutes
+                Total Time: {{ recipe['total_time'] }} Minutes
             </p>
-            <a href="{{ recipe['url'] }}" class="btn btn-primary">Recipe Link</a>
+            <a href="{{ recipe['link'] }}" class="btn btn-primary">Recipe Link</a>
             <i class="fa-solid fa-thumbs-up"></i>
             <i class="fa-solid fa-thumbs-down"></i>
         </div>

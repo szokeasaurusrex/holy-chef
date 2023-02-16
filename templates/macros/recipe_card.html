@@ -1,0 +1,15 @@
+{% macro recipe_card(recipe) -%}
+    <div class="w-100 mb-3 card">
+        <div class="card-body">
+            <h5 class="card-title">{{ recipe['title'] }}</h5>
+            <p class="card-text">
+                Key Ingredients: {{ ', '.join(recipe['ingredients']) }}
+                <br>
+                Total Time: {{ recipe['minutes'] }} Minutes
+            </p>
+            <a href="{{ recipe['url'] }}" class="btn btn-primary">Recipe Link</a>
+            <i class="fa-solid fa-thumbs-up"></i>
+            <i class="fa-solid fa-thumbs-down"></i>
+        </div>
+    </div>
+{%- endmacro %}

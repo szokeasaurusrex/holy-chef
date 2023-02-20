@@ -1,10 +1,12 @@
 from elasticsearch import Elasticsearch
-
+from dotenv import load_dotenv
+import os
 
 class ElasticManager:
     """ElasticManager"""
     def __init__(self, port):
-        self.es_client = Elasticsearch(port)
+        load_dotenv()
+        self.es_client = Elasticsearch(port, verify_certs=False, basic_auth=('elastic', os.environ['elastic_password']))
 
     def retrieve_recipe(self, ingredient_array, time_cook):
         """retrieve_recipe"""
@@ -13,28 +15,27 @@ class ElasticManager:
         
 
         query_body = {
-            "query": 
+            "bool":
             {
-                "bool":
-                {
-                    "must": [
+                "must": [
                     {
                         "range": {
-                        "total_time": {
-                        "lte" : time_cook
+                            "total_time": {
+                                "lte" : time_cook
+                            }
                         }
                     }
-                    }],
-                    "should": [
+                ],
+                "should": [
                     {
                         "match": {
-                        "ingredients": ingredient_string
+                                "ingredients": ingredient_string
+                            }
                         }
-                     }]
-                }
+                ]
             }
         }
-        result = self.es_client.search(index="recipes", body=query_body)
+        result = self.es_client.search(index="recipes", query=query_body)
         print("Result ", result["hits"]["hits"])
         return result
 

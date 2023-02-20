@@ -133,3 +133,6 @@ dmypy.json
 
 # VSCode settings file
 settings.json
+
+# Where Elastic credentials are stored
+.env

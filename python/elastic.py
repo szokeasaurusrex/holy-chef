@@ -1,7 +1,7 @@
 from elasticsearch import Elasticsearch
 from elasticsearch.client import IndicesClient
 
-es_client = Elasticsearch("http://localhost:9200")
+es_client = Elasticsearch("https://localhost:9200")
 print(es_client.info().body)
 
 es_index_client = IndicesClient(es_client)

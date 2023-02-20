@@ -4,7 +4,8 @@ def main():
     """main method"""
     port = "http://localhost:9200"
     manager = ElasticManager(port)
-    manager.insert_document("recipe", "filler")
+    manager.retrieve_recipe(["eggs"], 40)
 
 if __name__ == "__main__":
     main()
+ 

@@ -131,8 +131,8 @@ dmypy.json
 # .DS_Store (a Mac thing)
 .DS_Store
 
-# VSCode settings file
-settings.json
+# VSCode configureation
+.vscode
 
 # Where Elastic credentials are stored
 .env

@@ -12,7 +12,7 @@ class ElasticManager:
             basic_auth=('elastic', os.environ['elastic_password'])
         )
 
-    def retrieve_recipe(self, ingredient_string, time_cook):
+    def retrieve_recipe(self, recipe_options):
         """retrieve_recipe"""
         query_body = {
             "bool":
@@ -21,17 +21,29 @@ class ElasticManager:
                     {
                         "range": {
                             "total_time": {
-                                "lte" : time_cook
+                                "lte" : recipe_options['time_to_cook']
                             }
+                        }
+                    }
+                ],
+                "must_not": [
+                    {
+                        "match": {
+                            "ingredients": recipe_options['dietary_restrictions']
                         }
                     }
                 ],
                 "should": [
                     {
                         "match": {
-                                "ingredients": ingredient_string
-                            }
+                            "ingredients": recipe_options['ingredients']                            
                         }
+                    },
+                    {
+                        "match": {
+                            "title": recipe_options['liked_foods']
+                        }
+                    }
                 ]
             }
         }

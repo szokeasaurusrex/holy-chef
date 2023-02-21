@@ -14,6 +14,7 @@ MarkupSafe==2.1.2
 mccabe==0.7.0
 platformdirs==3.0.0
 pylint==2.16.2
+python-dotenv==0.21.1
 tomli==2.0.1
 tomlkit==0.11.6
 typing_extensions==4.4.0

@@ -6,7 +6,11 @@ class ElasticManager:
     """ElasticManager"""
     def __init__(self, port):
         load_dotenv()
-        self.es_client = Elasticsearch(port, verify_certs=False, basic_auth=('elastic', os.environ['elastic_password']))
+        self.es_client = Elasticsearch(
+            port,
+            verify_certs=False,
+            basic_auth=('elastic', os.environ['elastic_password'])
+        )
 
     def retrieve_recipe(self, ingredient_string, time_cook):
         """retrieve_recipe"""

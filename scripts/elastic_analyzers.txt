@@ -1,0 +1,17 @@
+POST /recipes/_close
+
+PUT /recipes/_settings
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_analyzer": {
+          "tokenizer": "whitespace",
+          "filter": [ "stemmer" ]
+        }
+      }
+    }
+  }
+}
+
+POST /recipes/_open

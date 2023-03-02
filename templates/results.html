@@ -1,0 +1,5 @@
+{% from 'macros/recipe_card.html' import recipe_card %}
+
+{% for recipe in results %}
+    {{ recipe_card(recipe) }}
+{% endfor %}

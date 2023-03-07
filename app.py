@@ -15,4 +15,4 @@ def generate_recipies():
     manager = ElasticManager('https://localhost:9200')
     results = manager.retrieve_recipe(request.form)
 
-    return render_template('index.html', results=results)
+    return render_template('results.html', results=results)

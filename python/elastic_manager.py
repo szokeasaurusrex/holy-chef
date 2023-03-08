@@ -1,6 +1,8 @@
 import os
 from elasticsearch import Elasticsearch
+from elasticsearch import helpers
 from dotenv import load_dotenv
+
 
 class ElasticManager:
     """ElasticManager"""
@@ -58,9 +60,31 @@ class ElasticManager:
                 ]
             }
         }
-        results = self.es_client.search(index="recipes", query=query_body)
+        results = self.es_client.search(index="recipes_v2", query=query_body)
         return [result['_source'] for result in results['hits']['hits']]
 
-    def insert_document(self, index_name, document_json):
-        """insert_document"""
-        self.es_client.index(index=index_name, document=document_json)
+    def bulk_insert_document(self, index_name, input_list):
+        """bulk_insert_document"""     
+        actions = []
+        list_index = 0
+        while list_index < len(input_list):
+
+            current_dict = input_list[list_index]
+
+            action = {
+                "_index": "recipes_v2",
+                "_id": list_index,
+                "_source": {
+                    "title": current_dict["title"],
+                    "total_time": current_dict["total_time"],
+                    "ingredients": current_dict["ingredients"],
+                    "instructions":current_dict["instructions"],
+                    "description": current_dict["description"],
+                    "image": current_dict["image"],
+                    "ratings":current_dict["ratings"]
+                }
+            }
+            actions.append(action)
+            list_index += 1
+
+        helpers.bulk(self.es_client, actions, index = index_name)

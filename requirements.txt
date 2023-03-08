@@ -22,6 +22,7 @@ pylint==2.16.2
 pytest==7.2.2
 pytest-flask==1.2.0
 python-dotenv==0.21.1
+recipe_scrapers==14.32.1
 tomli==2.0.1
 tomlkit==0.11.6
 typing_extensions==4.4.0

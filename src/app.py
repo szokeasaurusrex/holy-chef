@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from python.elastic_manager import ElasticManager
+from src.python.elastic_manager import ElasticManager
 
 app = Flask(__name__)
 
@@ -16,3 +16,8 @@ def generate_recipies():
     results = manager.retrieve_recipe(request.form)
 
     return render_template('results.html', results=results)
+
+@app.route('/ping')
+def ping():
+    """Ping test (for unit testing)"""
+    return 'pong'

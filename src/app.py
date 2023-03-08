@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from python.elastic_manager import ElasticManager
+from src.python.elastic_manager import ElasticManager
 
 app = Flask(__name__)
 

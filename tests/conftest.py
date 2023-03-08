@@ -1,6 +1,6 @@
 from unittest.mock import patch
 import pytest
-from app import app as flask_app
+from src.app import app as flask_app
 
 @pytest.fixture
 def app():
@@ -19,7 +19,7 @@ def client(app):
 @pytest.fixture
 def elastic_manager_mock():
     """Mocks the ElasticManager class"""
-    with patch('app.ElasticManager') as mock:
+    with patch('src.app.ElasticManager') as mock:
         instance = mock.return_value
         instance.retrieve_recipe.return_value = []
 

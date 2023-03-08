@@ -11,7 +11,7 @@ def test_home(client):
 
     assert response.status_code == 200
 
-def test_generate_recipes(client, elastic_manager_mock):
+def test_generate_recipes(client, elastic_manager_mock):  # pylint: disable=unused-argument
     """Test that generate recipes endpoint loads"""
     response = client.post('/generate_recipes', data={
         'ingredients': '',

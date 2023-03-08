@@ -1,12 +1,11 @@
+from unittest.mock import patch
 import pytest
 from app import app as flask_app
-from python.elastic_manager import ElasticManager
-from unittest.mock import patch
 
 @pytest.fixture
 def app():
     """Return the Flask app fixture"""
-    flask_app.config.update({ 
+    flask_app.config.update({
         'TESTING': True
     })
 

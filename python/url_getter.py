@@ -13,4 +13,3 @@ with open('allrecipe_source.txt', 'r', encoding='UTF-8') as source_file:
         for i, url in enumerate(url):
             # writer.writerow(f"https://www.allrecipes.com{url[1]}")
             csvfile.write(f"https://www.allrecipes.com{url[1]},\n")
-

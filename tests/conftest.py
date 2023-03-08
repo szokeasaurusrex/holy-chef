@@ -12,7 +12,7 @@ def app():
     yield flask_app
 
 @pytest.fixture
-def client(app):
+def client(app):  # pylint: disable=redefined-outer-name
     """Fixture for the client"""
     return app.test_client()
 

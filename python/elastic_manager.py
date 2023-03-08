@@ -14,6 +14,17 @@ class ElasticManager:
 
     def retrieve_recipe(self, recipe_options):
         """retrieve_recipe"""
+        dietary_restrictions = recipe_options['dietary_restrictions']
+
+        if 'lactose_intolerant' in recipe_options:
+            dietary_restrictions += ' milk cheese butter yogurt '
+
+        if 'nut_allergy' in recipe_options:
+            dietary_restrictions += ' nut peanut hazelnut '
+
+        if 'gluten_free' in recipe_options:
+            dietary_restrictions += ' bread beer wheat pasta '
+
         query_body = {
             "bool":
             {
@@ -29,7 +40,7 @@ class ElasticManager:
                 "must_not": [
                     {
                         "match": {
-                            "ingredients": recipe_options['dietary_restrictions']
+                            "ingredients": dietary_restrictions
                         }
                     }
                 ],

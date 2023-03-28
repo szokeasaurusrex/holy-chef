@@ -13,7 +13,6 @@ def generate_recipies():
     """Handles submission of the "Generate Recipes" button."""
     # Maybe there is a better way to do this so we don't have to reinsantiate every time
     manager = ElasticManager('https://localhost:9200')
-    
     # If the minutes field is not a float, return an error message
     try:
         float(request.form['time_to_cook'])

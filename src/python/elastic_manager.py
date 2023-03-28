@@ -1,9 +1,9 @@
 import os
 import csv
+from io import StringIO
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 from dotenv import load_dotenv
-from io import StringIO
 
 class ElasticManager:
     """ElasticManager"""

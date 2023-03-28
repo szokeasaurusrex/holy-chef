@@ -14,13 +14,11 @@ class ElasticManager:
             verify_certs=False,
             basic_auth=('elastic', os.environ['elastic_password'])
         )
-    
     def _split_str_by_comma(self, comma_separated_string):
         string_as_file = StringIO(comma_separated_string)
         for line in csv.reader(string_as_file):
             for element in line:
                 yield element
-    
     def _comma_split_query(self, query_field, comma_separated_string):
         return [{
             'match_phrase': {

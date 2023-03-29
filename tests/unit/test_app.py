@@ -17,7 +17,7 @@ def test_generate_recipes(client, elastic_manager_mock):  # pylint: disable=unus
         'ingredients': '',
         'dietary_restrictions': '',
         'liked_foods': '',
-        'minutes': 60,
+        'time_to_cook': 60,
     })
 
     assert response.status_code == 200

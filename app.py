@@ -12,7 +12,7 @@ def home():
 def generate_recipies():
     """Handles submission of the "Generate Recipes" button."""
     # Maybe there is a better way to do this so we don't have to reinsantiate every time
-    manager = ElasticManager('https://localhost:9200')
+    manager = ElasticManager('http://localhost:9200')
     results = manager.retrieve_recipe(request.form)
 
     return render_template('results.html', results=results)

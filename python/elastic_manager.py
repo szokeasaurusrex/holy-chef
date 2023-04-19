@@ -27,6 +27,7 @@ class ElasticManager:
         if 'gluten_free' in recipe_options:
             dietary_restrictions += ' bread beer wheat pasta '
 
+        ingredient = recipe_options['ingredients'].replace("\n", ",")
         query_body = {
             "bool":
             {
@@ -49,7 +50,8 @@ class ElasticManager:
                 "should": [
                     {
                         "match": {
-                            "ingredients": recipe_options['ingredients']                            
+                            "ingredients": recipe_options['ingredients']     
+                            #"ingredients": ingredient                           
                         }
                     },
                     {

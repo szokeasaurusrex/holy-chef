@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-6">
                 <form id="recipe_form"  action="/generate_recipes" method="POST">
-                    <label class="form-label">What ingredients do you have?</label>
+                    <label class="form-label">What ingredients do you have? <em class="text-secondary">(comma separated)</em></label>
                     <div class="w-100 mb-3 input-group">
                         <textarea class="w-100 form-control" name="ingredients"></textarea>
                     </div>
@@ -34,20 +34,21 @@
                         <label class="form-check-label">Gluten free</label>
                     </div>
                     <br />
-                    <label class="form-label">Other dietary restrictions, and ingredients you do not have:</label>
+                    <label class="form-label">Other dietary restrictions, and ingredients you do not have: <em class="text-secondary">(comma separated)</em></label>
                     <div class="w-100 mb-3 input-group">
                         <textarea class="form-control" name="dietary_restrictions"></textarea>
                     </div>
-                    <label class="form-label">What foods do you particularly like?</label>
+                    <label class="form-label">What foods do you particularly like? <em class="text-secondary">(comma separated)</em></label>
                     <div class="w-100 mb-3 input-group">
                         <textarea class="form-control" name="liked_foods"></textarea>
                     </div>
                     <label class="form-label">How much time do you have for cooking?</label>
                     <div class="mb-3 w-100 input-group">
-                        <input type="text" class="form-control" name="time_to_cook" required></input>
+                        <input type="number" min="0" class="form-control" name="time_to_cook" required></input>
                         <span class="input-group-text">minutes</span>
                     </div>
-                    <button type="submit" class="btn btn-primary"> Generate Recipes</button>
+                    <p>Note: To enter multiple items in the text fields, separate each item by commas.</p>
+                    <button type="submit" class="btn btn-primary">Generate Recipes</button>
                 </form>
             </div>
 

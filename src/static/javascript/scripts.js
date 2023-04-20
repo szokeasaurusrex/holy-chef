@@ -19,12 +19,13 @@ window.onload = () => {
         registerCheckboxListener()
     })
 
-    document.getElementById('chat-gpt-button').addEventListener('click', event => {
+    document.getElementById('chat-gpt-button').addEventListener('click', async event => {
         event.target.classList.add('loading')
-        window.setTimeout(() => {
-            const modal = new bootstrap.Modal(document.getElementById('chatGPTModal'))
-            modal.show()
-            event.target.classList.remove('loading')
-        }, 1000)
+        const response = await fetch('/chat_gpt_combine', { method: 'POST' })
+        const resultHTML = await response.text()
+        document.getElementById('chatGPTModal').innerHTML = resultHTML
+        const modal = new bootstrap.Modal(document.getElementById('chatGPTModal'))
+        modal.show()
+        event.target.classList.remove('loading')
     })
 }

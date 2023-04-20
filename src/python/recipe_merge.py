@@ -1,4 +1,4 @@
-from chatgpt_manager import ChatGPTManager
+from src.python.chatgpt_manager import ChatGPTManager
 
 
 class MergeRecipes:

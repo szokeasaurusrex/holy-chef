@@ -18,19 +18,19 @@ class MergeRecipes:
     def generate_merged_recipe(self, recipelist1, recipelist2):
         """generate_merged_recipe"""
         chat_gpt_manager = ChatGPTManager()
-        system_prompt = """The user will provide you the title and ingredients of two recipes.
-                        zYour job is to invent a never-before-seen recipe inspired by the two given recipes. 
-                        Please output the recipe you invent in JSON format. The JSON should include the following fields: 
-                        -"title": The recipe title, as a string
-                        - "ingredients": The ingredients, as an array of strings, with each string containing one ingredient
-                        - "instructions": The instructions, as an array of strings, 
-                        with each string containing one step for the recipe """
+        system_prompt = """The user will provide you the title and ingredients of two recipes.Your job is to invent a never-before-seen recipe inspired by the two given recipes.
+        Please output the recipe you invent in JSON format. The JSON should include the following fields: 
+        -"title": The recipe title, as a string
+        - "ingredients": The ingredients, as an array of strings, with each string containing one ingredient
+        - "instructions": The instructions, as an array of strings, 
+        with each string containing one step for the recipe """
+        print(system_prompt)
         user_input = "Recipe 1. Title: " + recipelist1['title'] + "." + "Ingredients: " + recipelist1['ingredients'] +  "Recipe 2. Title: " + recipelist2['title'] + "." + "Ingredients: " + recipelist2['ingredients'] # pylint: disable=unsubscriptable-object
 
         result = chat_gpt_manager.text_completion(system_prompt,user_input)
         return result
 
-"""Delete Once Connected to Front End"""
+#Delete Once Connected to Front End
 def main():
     """main"""
     generator = MergeRecipes()
@@ -49,9 +49,10 @@ def main():
                          1/4 cup dry white wine,1 tbsp chopped fresh thyme, 2 tbsp olive oil"""
     }
     result = generator.generate_merged_recipe(recipe_list1,recipe_list2)
+    print(result)
     recipe_json = json.loads(result)
 
-    """Joins the instruction list into a single string"""
+    #Joins the instruction list into a single string
     generator.join_strings(recipe_json," ", 'instructions')
 
     print(recipe_json)

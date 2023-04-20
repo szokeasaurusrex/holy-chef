@@ -1,10 +1,10 @@
+import os
 import openai
-
 
 class ChatGPTManager:
     """ChatGPTManager"""
     def __init__(self):
-        openai.api_key = "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"
+        openai.api_key = os.environ.get("OPENAI_API_KEY")
         self.model = "gpt-3.5-turbo"
 
     def text_completion(self, system_prompt, user_prompt):
@@ -22,4 +22,3 @@ class ChatGPTManager:
         )
         response = completion.choices[0].message.content
         return response
-

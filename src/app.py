@@ -31,6 +31,7 @@ def ping():
 @app.route('/chat_gpt_combine', methods=['POST'])
 def chat_gpt_combine():
     """Handles submission of ChatGPT recipe combine button."""
+    print(request.json)
     # TODO: Actual implementation
     recipe = {
         'title': 'Boiled egg',

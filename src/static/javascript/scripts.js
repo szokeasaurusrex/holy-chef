@@ -10,6 +10,14 @@ function registerCheckboxListener() {
     })
 }
 
+function recipeInfoFromCheckboxes() {
+    checkedRecipeBoxes = [...document.querySelectorAll('.recipe-checkbox:checked')]
+    return checkedRecipeBoxes.map(checkbox => ({
+        title: checkbox.dataset.recipeTitle,
+        ingredients: checkbox.dataset.recipeIngredients,
+    }))
+}
+
 window.onload = () => {
     document.getElementById('recipe_form').addEventListener('submit', async event => {
         event.preventDefault()
@@ -21,7 +29,13 @@ window.onload = () => {
 
     document.getElementById('chat-gpt-button').addEventListener('click', async event => {
         event.target.classList.add('loading')
-        const response = await fetch('/chat_gpt_combine', { method: 'POST' })
+        const response = await fetch('/chat_gpt_combine', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(recipeInfoFromCheckboxes())
+        })
         const resultHTML = await response.text()
         document.getElementById('chatGPTModal').innerHTML = resultHTML
         const modal = new bootstrap.Modal(document.getElementById('chatGPTModal'))

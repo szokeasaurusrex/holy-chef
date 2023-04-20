@@ -12,7 +12,7 @@ class ChatGPTManager:
         """text_completion"""
         completion = openai.ChatCompletion.create(
             model=self.model,
-            max_tokens=1024,
+            max_tokens=2048,
             n=1,
             stop=None,
             temperature=0.5,

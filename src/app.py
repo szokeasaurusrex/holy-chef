@@ -1,5 +1,8 @@
+import json
+
 from flask import Flask, render_template, request
 from src.python.elastic_manager import ElasticManager
+from src.python.recipe_merge import MergeRecipes
 
 app = Flask(__name__)
 
@@ -27,3 +30,12 @@ def generate_recipies():
 def ping():
     """Ping test (for unit testing)"""
     return 'pong'
+
+@app.route('/chat_gpt_combine', methods=['POST'])
+def chat_gpt_combine():
+    """Handles submission of ChatGPT recipe combine button."""
+    try:
+        recipe = MergeRecipes().generate_merged_recipe(*request.json)
+        return render_template('chat_gpt_recipe.html', recipe=json.loads(recipe))
+    except json.decoder.JSONDecodeError:
+        return render_template('chat_gpt_error.html')

@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ recipe['title'] }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h6>Ingredients</h6>
+            <ul>
+                {% for ingredient in recipe['ingredients'] %}
+                    <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+            <h6>Instructions</h6>
+            <ol>
+                {% for instruction in recipe['instructions'] %}
+                    <li>{{ instruction }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</div>

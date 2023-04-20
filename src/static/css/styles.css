@@ -1,0 +1,7 @@
+#chat-gpt-button:not(.loading) .fa-rotate {
+    display: none;
+}
+
+#chat-gpt-button.loading .fa-flask {
+    display: none;
+}

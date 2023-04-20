@@ -1,6 +1,7 @@
 import os
 import openai
 
+#pylint: disable=too-few-public-methods
 class ChatGPTManager:
     """ChatGPTManager"""
     def __init__(self):

@@ -1,5 +1,5 @@
 import os
-import openai #pylint: disable=import-error
+import openai
 
 #pylint: disable=too-few-public-methods
 class ChatGPTManager:

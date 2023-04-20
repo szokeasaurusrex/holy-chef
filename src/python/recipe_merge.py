@@ -17,7 +17,7 @@ class MergeRecipes:
         """generate_merged_recipe"""
         chat_gpt_manager = ChatGPTManager()
         # pylint: disable=line-too-long
-        system_prompt = """The user will provide you the title and ingredients of two recipes.Your job is to invent a never-before-seen recipe inspired by the two given recipes. 
+        system_prompt = """The user will provide you the title and ingredients of two recipes.Your job is to invent a never-before-seen recipe inspired by the two given recipes.
         Please output the recipe you invent in JSON format. The JSON should include the following fields: 
         -"title": The recipe title, as a string
         - "ingredients": The ingredients, as an array of strings, with each string containing one ingredient
